@@ -1,4 +1,6 @@
-﻿namespace ListItMaui;
+﻿using Microsoft.Maui.Controls;
+
+namespace ListItMaui;
 
 public partial class AppShell : Shell
 {

@@ -1,11 +1,14 @@
-﻿namespace ListItMaui;
+﻿using Microsoft.Maui.Controls;
 
-public partial class App : Application
+namespace ListItMaui
 {
-    public App()
+    public partial class App : Application
     {
-        InitializeComponent();
+        public App()
+        {
+            InitializeComponent();
 
-        MainPage = new AppShell();
+            MainPage = new AppShell();
+        }
     }
 }
