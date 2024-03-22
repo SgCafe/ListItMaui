@@ -5,5 +5,6 @@ public enum CategoryType
     Mercado,
     Eletronicos,
     Oficina,
-    Farmacia
+    Farmacia,
+    None
 }

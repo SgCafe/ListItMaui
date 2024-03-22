@@ -27,10 +27,10 @@ namespace ListIt_Maui.Viewmodels
         private CategoryType _categorySave;
 
         [ObservableProperty] 
-        private int _quantitySave;
+        private int? _quantitySave;
 
         [ObservableProperty] 
-        private decimal _valueSave;
+        private decimal? _valueSave;
         
         #endregion
 
@@ -64,6 +64,11 @@ namespace ListIt_Maui.Viewmodels
             };
 
             await _productService.CreateProduct(item);
+
+            NameSave = string.Empty;
+            CategorySave = CategoryType.None;
+            QuantitySave = null;
+            ValueSave = null;
             
             BackProductPage();
         }
