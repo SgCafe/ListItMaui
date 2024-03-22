@@ -1,9 +1,4 @@
 ﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ListIt_Maui.Models
 {
@@ -13,9 +8,12 @@ namespace ListIt_Maui.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int? Quantity { get; set; }
-        public double? Value { get; set; }
-        public string Category { get; set; }
-        public string Image { get; set; }
+        public decimal? Value { get; set; }
+        public CategoryType Category { get; set; }
+        public string Image { 
+            get => ImageConstants.CategoryImageMap[Category];
+            set { }
+        }
 
     }
 }
