@@ -7,12 +7,12 @@ public class ProductService : IProductService
 {
     private SQLiteAsyncConnection _dbConnection;
     
-    public async Task InitializeAsync()
+    public ProductService()
     {
-        await SetUpDb();
+        SetUpDb();
     }
 
-    private async Task SetUpDb()
+    private void SetUpDb()
     {
         if (_dbConnection == null)
         {
@@ -20,7 +20,7 @@ public class ProductService : IProductService
                 .GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Product.db3");
 
             _dbConnection = new SQLiteAsyncConnection(dbPath);
-            await _dbConnection.CreateTableAsync<Product>();
+            _dbConnection.CreateTableAsync<Product>();
         }
     }
 

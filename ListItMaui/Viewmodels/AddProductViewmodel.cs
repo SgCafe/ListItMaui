@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ListIt_Maui.Models;
+using ListItMaui.Services;
 
 namespace ListIt_Maui.Viewmodels
 {
     public partial class AddProductViewmodel : ObservableObject
     {
         #region Properties
+
+        private readonly IProductService _productService;
 
         [ObservableProperty] 
         private ObservableCollection<Product> _categoriesList;
@@ -35,6 +38,7 @@ namespace ListIt_Maui.Viewmodels
 
         public AddProductViewmodel()
         {
+            _productService = new ProductService();
             CategoryList();
         }
         
@@ -49,7 +53,7 @@ namespace ListIt_Maui.Viewmodels
         }
 
         [RelayCommand]
-        private void SaveProduct()
+        private async Task SaveProduct()
         {
             var item = new Product()
             {
@@ -58,6 +62,8 @@ namespace ListIt_Maui.Viewmodels
                 Quantity = QuantitySave,
                 Value = ValueSave
             };
+
+            await _productService.CreateProduct(item);
             
             BackProductPage();
         }
