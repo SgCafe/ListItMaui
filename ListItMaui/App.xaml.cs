@@ -1,4 +1,5 @@
-﻿using Microsoft.Maui.Controls;
+﻿using ListItMaui.Services;
+using Microsoft.Maui.Controls;
 
 namespace ListItMaui
 {
@@ -7,7 +8,7 @@ namespace ListItMaui
         public App()
         {
             InitializeComponent();
-
+            DependencyService.Register<IProductService, ProductService>();
             MainPage = new AppShell();
         }
     }
